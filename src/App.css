@@ -1,0 +1,149 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app,body{
+  background-color: #6c5ce7;
+  height: 100%;
+  width: 100%;
+}
+.header{
+  /* margin: auto; */
+  text-align: center;
+  
+}
+.header > button{
+  border: none;
+  border-radius: 6px;
+  padding: 8px 3px;
+  width: 100px;
+  margin: 5px;
+  background-color: #55efc4;
+}
+
+.watch{
+  width: 350px;
+  height: 180px;
+  top: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,-50%);
+   background-color: white;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px ;
+}
+h1{
+  text-align: center;
+}
+
+section{
+  display: flex;
+  width: 100%;
+  height: 50px;
+  padding:0  10px;
+  justify-content: space-between;
+  gap: 10px;
+}
+ section > button {
+  border: none;
+  border-radius: 6px;
+  padding: 8px 0;
+  width: 80px;
+} 
+section > button:nth-child(1){
+    background-color: #74b9ff;
+}
+section > button:nth-child(2){
+  background-color: #fab1a0;
+}
+section > button:nth-child(3){
+  background-color: #55efc4;
+} 
+
+.modal{
+  width: 350px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: #fff;
+  z-index: 1;
+}
+.box1{
+  width: 100%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+ .box2{
+  display: flex;
+  width: 100%;
+  height: 30%;
+  padding: 20px 10px;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+}
+
+.box1 > input{
+  width: 80%;
+  height: 40px;
+  margin: 10px;
+  padding: 10px 10px;
+}
+  
+/*
+.modal >textarea{
+  width: 100%;
+  height: 80px;
+  
+}
+*/
+ .box2 > button {
+  border: none;
+  border-radius: 6px;
+  padding: 8px 0;
+  width: 80px;
+}
+
+.box2 > button:nth-child(1){
+  background-color: #fab1a0;
+}
+.box2 > button:nth-child(2){
+  background-color: #55efc4;
+} 
+.showed{
+  width: 350px;
+  height: 200px;
+  top: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,-50%);
+   background-color: white;
+   display: flex;
+   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap:10px;
+  padding: 10px
+}
+.showed > div{
+  width: 100%;
+  margin: 0 20px;
+  display: flex;
+  border: 1px solid black;
+  justify-content: space-evenly;
+}
