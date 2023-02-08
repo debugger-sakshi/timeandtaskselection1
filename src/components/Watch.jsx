@@ -1,14 +1,15 @@
 import React, { useRef, useState } from 'react'
 
-const Watch = ({setTimer}) => {
+const Watch = ({isTimer,setTimer,requestModalOpen}) => {
     let [hour,setHour] = useState(0);
     let [minutes,setMinutes] = useState(0);
     let [seconds,setSeconds] = useState(0);
-    let timer;
     let [isStart,setisStart] = useState(true);
-    let [isPause,setisPause] = useState(true);
+    let [isPause,setisPause] = useState(false);
+    let [isSave,setisSave] = useState(false);
 
-    const intervalRef = useRef(null)
+
+    const intervalRef = useRef();
     const displayTimer = () =>{
         intervalRef.current = setInterval(() =>{
             seconds += 1
@@ -31,18 +32,33 @@ const Watch = ({setTimer}) => {
     const onClickStartHandler = () =>{
         setisStart(false)
         setisPause(true)
+        setisSave(true)
         displayTimer()
     }
     const onClickPauseHandler = ()=>{
         setisStart(true)
         setisPause(false)
-        
+        setisSave(true)
         clearInterval(intervalRef.current)
         intervalRef.current = null;
     }
     const saveHandler = ()=>{
         const val = `${hour}:${minutes}:${seconds}`
         setTimer(val)
+        onClickPauseHandler()
+        seconds = 0
+        setSeconds(seconds)
+        minutes = 0
+        setMinutes(minutes)
+        hour = 0
+        setHour(hour)
+        // console.log(hour,seconds,minutes)
+        requestModalOpen(true)
+        
+    }
+    if (!isTimer){
+        console.log(isTimer)
+        return null
     }
   return (
     
@@ -51,7 +67,7 @@ const Watch = ({setTimer}) => {
         <section>
             <button onClick={onClickStartHandler} disabled={!isStart}>Start</button>
             <button onClick={onClickPauseHandler} disabled={!isPause}>Pause</button>
-            <button onClick={saveHandler}>Save</button>
+            <button onClick={saveHandler} disabled={!isSave}>Save</button>
         </section>
       </div>
     
